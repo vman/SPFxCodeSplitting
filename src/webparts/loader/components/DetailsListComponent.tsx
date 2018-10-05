@@ -208,7 +208,7 @@ export class DetailsListDocumentsComponent extends React.Component<any, IDetails
           offText="Normal"
         />
         <div>{selectionDetails}</div>
-        <TextField label="Filter by name:" onChange={this._onChangeText} />
+        <TextField label="Filter by name:" onChanged={this._onChangeText} />
         <MarqueeSelection selection={this._selection}>
           <DetailsList
             items={items}
@@ -242,7 +242,7 @@ export class DetailsListDocumentsComponent extends React.Component<any, IDetails
     this.setState({ isModalSelection: checked });
   }
 
-  private _onChangeText = (ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, text?: string): void => {
+  private _onChangeText = (text?: string): void => {
     this.setState({ items: text ? _items.filter(i => i.name.toLowerCase().indexOf(text) > -1) : _items });
   }
 

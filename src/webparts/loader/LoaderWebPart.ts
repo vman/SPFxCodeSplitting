@@ -7,19 +7,19 @@ import {
   PropertyPaneTextField
 } from '@microsoft/sp-webpart-base';
 
-import * as strings from 'HelloWorldWebPartStrings';
-import HelloWorld from './components/HelloWorld';
-import { IHelloWorldProps } from './components/IHelloWorldProps';
+import * as strings from 'LoaderWebPartStrings';
+import Loader from './components/Loader';
+import { ILoaderProps } from './components/ILoaderProps';
 
-export interface IHelloWorldWebPartProps {
+export interface ILoaderWebPartProps {
   description: string;
 }
 
-export default class HelloWorldWebPart extends BaseClientSideWebPart<IHelloWorldWebPartProps> {
+export default class LoaderWebPart extends BaseClientSideWebPart<ILoaderWebPartProps> {
 
   public render(): void {
-    const element: React.ReactElement<IHelloWorldProps > = React.createElement(
-      HelloWorld,
+    const element: React.ReactElement<ILoaderProps > = React.createElement(
+      Loader,
       {
         description: this.properties.description
       }

@@ -2,17 +2,17 @@
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
   "version": "2.0",
   "bundles": {
-    "hello-world-web-part": {
+    "loader-web-part": {
       "components": [
         {
-          "entrypoint": "./lib/webparts/helloWorld/HelloWorldWebPart.js",
-          "manifest": "./src/webparts/helloWorld/HelloWorldWebPart.manifest.json"
+          "entrypoint": "./lib/webparts/loader/LoaderWebPart.js",
+          "manifest": "./src/webparts/loader/LoaderWebPart.manifest.json"
         }
       ]
     }
   },
   "externals": {},
   "localizedResources": {
-    "HelloWorldWebPartStrings": "lib/webparts/helloWorld/loc/{locale}.js"
+    "LoaderWebPartStrings": "lib/webparts/loader/loc/{locale}.js"
   }
 }

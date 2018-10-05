@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
-  "id": "ebf53f35-d017-48fb-a174-352908b7bc9d",
-  "alias": "HelloWorldWebPart",
+  "id": "71039ada-32dc-4509-944c-91d3f1b3ae33",
+  "alias": "LoaderWebPart",
   "componentType": "WebPart",
 
   // The "*" signifies that the version should be taken from the package.json
@@ -16,11 +16,11 @@
   "preconfiguredEntries": [{
     "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Other
     "group": { "default": "Other" },
-    "title": { "default": "Code Splitting Demo" },
-    "description": { "default": "description" },
+    "title": { "default": "Code Splitting Demo - Loader" },
+    "description": { "default": "Loader description" },
     "officeFabricIconFontName": "Code",
     "properties": {
-      "description": "HelloWorld"
+      "description": "Loader"
     }
   }]
 }
