@@ -10,9 +10,7 @@ export interface ILoaderState {
 export default class Loader extends React.Component<ILoaderProps, ILoaderState> {
   
   constructor(props: ILoaderProps) {
-
     super(props);
-
     this.state = {
       currentTime: ''
     };
