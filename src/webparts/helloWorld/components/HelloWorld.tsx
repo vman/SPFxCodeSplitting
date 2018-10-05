@@ -1,10 +1,10 @@
 import * as React from 'react';
 import styles from './HelloWorld.module.scss';
 import { IHelloWorldProps } from './IHelloWorldProps';
-import { DefaultButton } from 'office-ui-fabric-react/lib/Button';
+import * as ReactDom from 'react-dom';
 
 export interface IHelloWorldState {
-  components: any[];
+  currentTime: string;
 }
 
 export default class HelloWorld extends React.Component<IHelloWorldProps, IHelloWorldState> {
@@ -14,36 +14,70 @@ export default class HelloWorld extends React.Component<IHelloWorldProps, IHello
     super(props);
 
     this.state = {
-      components: []
+      currentTime: ''
     };
   }
 
   public render(): React.ReactElement<IHelloWorldProps> {
     return (
       <div className={styles.helloWorld}>
-        <DefaultButton
-          primary={true}
-          text="Load"
-          onClick={this._loadClicked.bind(this)}
-        />
-        {this.state.components.length > 0 &&
+        <button onClick={this._loadRating.bind(this)}>
+          Load Rating
+        </button>
+        <button onClick={this._loadDocumentsClicked.bind(this)}>
+          Load Documents
+        </button>
+        <button onClick={this._loadMomentClicked.bind(this)}>
+          Load moment js
+        </button>
+        <div className="ratingsContainer">
 
-          this.state.components.map((Component, index) => (
-            <Component key={index} />
-          ))
-        }
+        </div>
+        <div className="momentContainer">
+          {this.state.currentTime}
+        </div>
+        <div className="detailsContainer">
+
+        </div>
       </div>
     );
   }
 
-  private async _loadClicked() {
+  private async _loadRating() {
     const component = await import(
       /* webpackChunkName: 'rating-component' */
       './RatingComponent'
     );
 
+    const element: React.ReactElement<any> = React.createElement(
+      component.RatingComponent
+    );
+
+    const currentElement = ReactDom.findDOMNode(this).getElementsByClassName("ratingsContainer")[0];
+    ReactDom.render(element, currentElement);
+  }
+
+  private async _loadDocumentsClicked() {
+    const component = await import(
+      /* webpackChunkName: 'documentdetails-component' */
+      './DetailsListDocumentsComponent'
+    );
+
+    const element: React.ReactElement<any> = React.createElement(
+      component.DetailsListDocumentsComponent
+    );
+
+    const currentElement = ReactDom.findDOMNode(this).getElementsByClassName("detailsContainer")[0];
+    ReactDom.render(element, currentElement);
+  }
+
+  private async _loadMomentClicked() {
+    const moment = await import(
+      /* webpackChunkName: 'moment-js' */
+      'moment'
+    );
     this.setState({
-      components: this.state.components.concat(component.RatingComponent)
+      currentTime: moment().format('LLLL')
     });
   }
 }
