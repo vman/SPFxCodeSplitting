@@ -29,7 +29,6 @@ export default class Loader extends React.Component<ILoaderProps, ILoaderState> 
           {this.state.currentTime}
         </div>
         <div className="detailsContainer">
-
         </div>
       </div>
     );
