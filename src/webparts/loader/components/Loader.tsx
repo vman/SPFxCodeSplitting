@@ -38,7 +38,7 @@ export default class Loader extends React.Component<ILoaderProps, ILoaderState> 
   private async _loadDocumentsClicked() {
     const component = await import(
       /* webpackChunkName: 'documentdetails-component' */
-      './DetailsListComponent'
+      './DetailsListComponent' //Custom component from the solution
     );
 
     const element: React.ReactElement<any> = React.createElement(
@@ -49,7 +49,7 @@ export default class Loader extends React.Component<ILoaderProps, ILoaderState> 
     const delailsContainerElement = currentElement.getElementsByClassName("detailsContainer")[0];
     
     ReactDom.render(element, delailsContainerElement);
-  }
+}
 
   private async _loadMomentClicked() {
     const moment = await import(
