@@ -45,9 +45,9 @@ export default class Loader extends React.Component<ILoaderProps, ILoaderState> 
     );
 
     const currentElement = ReactDom.findDOMNode(this);
-    const delailsContainerElement = currentElement.getElementsByClassName("detailsContainer")[0];
+    const detailsContainerElement = currentElement.getElementsByClassName("detailsContainer")[0];
     
-    ReactDom.render(element, delailsContainerElement);
+    ReactDom.render(element, detailsContainerElement);
 }
 
   private async _loadMomentClicked() {
